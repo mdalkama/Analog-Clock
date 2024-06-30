@@ -5,12 +5,11 @@ const body = document.querySelector('body'),
     modeSwitch = document.querySelector('.mode-switch');
     if(localStorage.getItem("mode") === "Dark Mode"){
         body.classList.toggle('dark');
-        modeSwitch.textContent = "Light Mode";
+        modeSwitch.checked = "true";
     }
-    modeSwitch.addEventListener('click',()=>{
+    modeSwitch.addEventListener('change',()=>{
         body.classList.toggle('dark');
-        const isDarkMode = body.classList.contains('dark');
-        modeSwitch.textContent = isDarkMode? "Light Mode" : "Dark Mode";
+        let isDarkMode = body.classList.contains('dark');
         localStorage.setItem("mode", isDarkMode ? "Dark Mode" : "Light Mode");
     })
     const updateTime = ()=>{
